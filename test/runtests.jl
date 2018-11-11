@@ -1,6 +1,6 @@
 using Test
 using FinDiff2018
-using AdvectionEq
+#using AdvectionEq
 #using TimeEvolce
 
 using Plots
