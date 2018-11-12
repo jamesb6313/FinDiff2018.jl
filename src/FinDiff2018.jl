@@ -1,9 +1,8 @@
 module FinDiff2018
 
 #push!(LOAD_PATH, @__DIR__) # expose all other modules defined in this directory.
-#include("C:/Julia/FinDiff2018/src/AdvectionEq.jl")
 
-using Plots
+#using Plots
 
 export PLCFun, derivRight, samplePLC, evaluate, refine
 
@@ -109,12 +108,19 @@ function refine(f::PLCFun{T, U})::PLCFun{T, U} where {T, U}
     PLCFun{T, U}(ys)
 end
 
-#Create Plots
+#=
+
+Create Plots
 #export testplot
 #function testplot(arr::Array{Float64,2}, filename::String)
 #	heatmap(arr, clim=(-1.0, +1.0), color=:viridis)
 #	savefig(filename)
 #end
 
+=#
 
-end # module
+
+include("AdvectionEq.jl")
+include("TimeEvolve.jl")
+
+end # module FinDiff2018

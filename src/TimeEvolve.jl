@@ -1,10 +1,8 @@
-module TimeEvolve
+#============================================================================================
+			Time Evolve
+============================================================================================#
 
-using AdvectionEq
-
-############################################################
-##			Time evolution
-############################################################
+export euler, Solution, solveAdvection
 
 #export euler
 function euler(rhs::Function, dt::T,
@@ -14,14 +12,13 @@ function euler(rhs::Function, dt::T,
     AdvectionState{T}(s0.time + dt, s1.u)
 end
 
-export Solution
+
 struct Solution{T}
     dx::T
     dt::T
     states::Vector{AdvectionState{T}}
 end
 
-export solveAdvection
 function solveAdvection(tmax::T, nlines::Int, lambda::T)::Solution{T} where {T}
     dx = 1 / nlines
     dt = lambda * dx
@@ -35,5 +32,3 @@ function solveAdvection(tmax::T, nlines::Int, lambda::T)::Solution{T} where {T}
     end
     sol
 end
-
-end #module
